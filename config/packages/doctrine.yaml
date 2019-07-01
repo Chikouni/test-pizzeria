@@ -14,7 +14,7 @@ doctrine:
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
-        host: '%env(resolve:DATABASE_HOST)%'
+        host: 127.0.0.1
         url: '%env(resolve:DATABASE_URL)%'
         user: '%env(DATABASE_USER)%'
         password: '%env(DATABASE_PWD)%'
