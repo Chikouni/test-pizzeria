@@ -34,11 +34,21 @@ class Pizza
     private $quantiteIngredients;
 
     /**
+     * @ORM\ManyToMany(
+     *     targetEntity="App\Entity\Pizzeria",
+     *     inversedBy="pizza"
+     * )
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $pizzeria;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->quantiteIngredients = new ArrayCollection();
+        $this->pizzeria = new ArrayCollection();
     }
 
     /**
@@ -104,5 +114,13 @@ class Pizza
     public function getQuantiteIngredients(): Collection
     {
         return $this->quantiteIngredients;
+    }
+
+    /**
+     * @return Collection|Pizzeria[]
+     */
+    public function getPizzeria(): Collection
+    {
+        return $this->pizzeria;
     }
 }
